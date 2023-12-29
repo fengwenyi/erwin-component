@@ -18,14 +18,18 @@ import java.time.LocalDateTime;
 public class UserServiceImpl implements IUserService {
 
     @Override
-    @Cacheable(value = "sample-redis", key = "'user-'+#id",  unless = "#result == null")
+    @Cacheable(
+            value = "sample-redis",
+            key = "'user-'+#id",
+            unless = "#result == null"
+    )
     public UserVo getUserById(Long id) {
 
         log.info("userVo from db query");
 
         UserVo userVo = new UserVo();
         userVo.setId(1L);
-        userVo.setName("Zhangsan");
+        userVo.setName("Zhang San");
         userVo.setCreateDateTime(LocalDateTime.now());
 
         return userVo;

@@ -19,7 +19,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @since 2023-12-26
  */
 @Configuration
-public class RedisConfig {
+public class ComponentRedisConfig {
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
@@ -41,9 +41,13 @@ public class RedisConfig {
 
     @Bean
     public RedisCacheConfiguration redisCacheConfiguration() {
-        return RedisCacheConfiguration.defaultCacheConfig()
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer()))
-                ;
+        return RedisCacheConfiguration
+                .defaultCacheConfig()
+                .serializeValuesWith(
+                        RedisSerializationContext
+                                .SerializationPair
+                                .fromSerializer(redisSerializer())
+                );
     }
 
     private RedisSerializer<Object> redisSerializer() {
