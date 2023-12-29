@@ -1,0 +1,5 @@
+### getUserById
+GET http://localhost:8080/sample/user/1
+
+### clearUserCacheById
+DELETE http://localhost:8080/sample/user-cache/1

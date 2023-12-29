@@ -5,17 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.fengwenyi</groupId>
-        <artifactId>erwin-component</artifactId>
+        <artifactId>erwin-component-common-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>erwin-component-common-parent</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>erwin-component-common</artifactId>
 
-    <modules>
-        <module>erwin-component-common-jpa</module>
-        <module>erwin-component-common-redis</module>
-        <module>erwin-component-common</module>
-    </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-json</artifactId>
+        </dependency>
+    </dependencies>
 </project>

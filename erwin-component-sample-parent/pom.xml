@@ -10,7 +10,11 @@
     </parent>
 
     <artifactId>erwin-component-sample-parent</artifactId>
+    <version>0.0.X-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <modules>
+        <module>sample-redis</module>
+    </modules>
 
     <properties>
         <maven.install.skip>true</maven.install.skip>
@@ -20,7 +24,14 @@
         <erwin-component-sample.version>0.0.X-SNAPSHOT</erwin-component-sample.version>
     </properties>
 
-<!--    <dependencies></dependencies>-->
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+    </dependencies>
 <!--    <dependencyManagement></dependencyManagement>-->
 
 </project>

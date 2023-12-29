@@ -40,10 +40,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,15 +55,27 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>JavaLib</artifactId>
+                <version>${JavaLib.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-common</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-jpa</artifactId>
@@ -72,8 +84,8 @@
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
-                <artifactId>JavaLib</artifactId>
-                <version>${JavaLib.version}</version>
+                <artifactId>erwin-component-common-redis</artifactId>
+                <version>${erwin-component.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
