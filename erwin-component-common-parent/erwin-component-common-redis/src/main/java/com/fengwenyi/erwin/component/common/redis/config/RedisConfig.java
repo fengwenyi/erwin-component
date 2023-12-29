@@ -1,6 +1,8 @@
 package com.fengwenyi.erwin.component.common.redis.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import com.fengwenyi.erwin.component.common.util.JacksonUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,10 +47,9 @@ public class RedisConfig {
     }
 
     private RedisSerializer<Object> redisSerializer() {
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        JacksonUtils.configure(objectMapper);
-//        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-//        return new GenericJackson2JsonRedisSerializer(objectMapper);
-        return new GenericJackson2JsonRedisSerializer();
+        JsonMapper jsonMapper = new JsonMapper();
+        JacksonUtils.configure(jsonMapper);
+        jsonMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
+        return new GenericJackson2JsonRedisSerializer(jsonMapper);
     }
 }
