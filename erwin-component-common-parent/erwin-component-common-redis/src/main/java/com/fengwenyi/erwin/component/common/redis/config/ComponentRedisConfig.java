@@ -18,7 +18,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @author <a href="https://fengwenyi.com">Erwin Feng</a>
  * @since 2023-12-26
  */
-@Configuration
+//@Configuration
 public class ComponentRedisConfig {
 
     @Bean
@@ -39,21 +39,28 @@ public class ComponentRedisConfig {
         return template;
     }
 
-    @Bean
-    public RedisCacheConfiguration redisCacheConfiguration() {
-        return RedisCacheConfiguration
-                .defaultCacheConfig()
-                .serializeValuesWith(
-                        RedisSerializationContext
-                                .SerializationPair
-                                .fromSerializer(redisSerializer())
-                );
-    }
+@Bean
+public RedisCacheConfiguration redisCacheConfiguration() {
+    return RedisCacheConfiguration
+            .defaultCacheConfig()
+            .serializeValuesWith(
+                    RedisSerializationContext
+                            .SerializationPair
+//                            .fromSerializer(RedisSerializer.json())
+//                            .fromSerializer(
+//                                    new GenericJackson2JsonRedisSerializer()
+//                            )
+                            .fromSerializer(redisSerializer())
+            );
+}
 
-    private RedisSerializer<Object> redisSerializer() {
-        JsonMapper jsonMapper = new JsonMapper();
-        JacksonUtils.configure(jsonMapper);
-        jsonMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
-        return new GenericJackson2JsonRedisSerializer(jsonMapper);
-    }
+private RedisSerializer<Object> redisSerializer() {
+    JsonMapper jsonMapper = new JsonMapper();
+    JacksonUtils.configure(jsonMapper);
+    jsonMapper.activateDefaultTyping(
+            LaissezFaireSubTypeValidator.instance,
+            ObjectMapper.DefaultTyping.NON_FINAL
+    );
+    return new GenericJackson2JsonRedisSerializer(jsonMapper);
+}
 }
