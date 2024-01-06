@@ -2,7 +2,9 @@
 
 ## 0.0.1
 
-- 【component-common-common】
+- 【component-common】
 - 【component-common-jpa】
 - 【component-common-redis】
 - 【component-task】
+- 【component-config】
+- 【component-log】

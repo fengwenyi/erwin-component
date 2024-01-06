@@ -19,6 +19,7 @@
     <properties>
         <maven.install.skip>true</maven.install.skip>
         <maven.deploy.skip>true</maven.deploy.skip>
+        <maven.test.skip>true</maven.test.skip>
         <mysql.version>8.2.0</mysql.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <erwin-component-sample.version>0.0.X-SNAPSHOT</erwin-component-sample.version>

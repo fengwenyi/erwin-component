@@ -13,9 +13,12 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>erwin-component-common</module>
         <module>erwin-component-common-jpa</module>
         <module>erwin-component-common-redis</module>
-        <module>erwin-component-common</module>
+        <module>erwin-component-common-aop</module>
+        <module>erwin-component-common-ip2region</module>
+        <module>erwin-component-common-mybatis-plus</module>
     </modules>
 
 </project>

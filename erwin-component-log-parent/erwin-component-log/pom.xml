@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.fengwenyi</groupId>
+        <artifactId>erwin-component-log-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>erwin-component-log</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.fengwenyi</groupId>
+            <artifactId>erwin-component-common-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fengwenyi</groupId>
+            <artifactId>erwin-component-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fengwenyi</groupId>
+            <artifactId>erwin-component-log-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fengwenyi</groupId>
+            <artifactId>erwin-component-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fengwenyi</groupId>
+            <artifactId>erwin-component-common-ip2region</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

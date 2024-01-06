@@ -20,10 +20,12 @@
     <description>components</description>
 
     <modules>
-        <module>erwin-component-email</module>
-        <module>erwin-component-task</module>
         <module>erwin-component-common-parent</module>
         <module>erwin-component-sample-parent</module>
+        <module>erwin-component-email</module>
+        <module>erwin-component-task</module>
+        <module>erwin-component-config</module>
+        <module>erwin-component-log-parent</module>
     </modules>
 
     <properties>
@@ -33,6 +35,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <erwin-component.version>0.0.1-SNAPSHOT</erwin-component.version>
         <JavaLib.version>2.2.7</JavaLib.version>
+        <ip2region.version>2.7.0</ip2region.version>
+        <commons-lang3.version>3.14.0</commons-lang3.version>
+        <commons-rng.version>1.5</commons-rng.version>
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>
     </properties>
 
     <dependencies>
@@ -85,6 +91,54 @@
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-redis</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-common-aop</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-common-ip2region</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-common-mybatis-plus</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-config</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-log-model</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-log-common</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-log-client</artifactId>
+                <version>${erwin-component.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-log</artifactId>
                 <version>${erwin-component.version}</version>
             </dependency>
         </dependencies>

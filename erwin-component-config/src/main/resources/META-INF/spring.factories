@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.fengwenyi.erwin.component.config.ConfigComponentAutoConfiguration
