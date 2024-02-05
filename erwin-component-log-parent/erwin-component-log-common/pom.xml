@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.fengwenyi</groupId>
         <artifactId>erwin-component-log-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>erwin-component-log-common</artifactId>
