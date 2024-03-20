@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -34,15 +34,18 @@
         <maven.compiler.target>17</maven.compiler.target>
         <maven.test.skip>true</maven.test.skip>
 
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <revision>0.0.1-SNAPSHOT</revision>
 
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <erwin-component.version>0.0.1-SNAPSHOT</erwin-component.version>
+        <commons-lang3.version>3.14.0</commons-lang3.version>
+
         <JavaLib.version>2.2.7</JavaLib.version>
         <ip2region.version>2.7.0</ip2region.version>
         <commons-lang3.version>3.14.0</commons-lang3.version>
         <commons-rng.version>1.5</commons-rng.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <mybatis-spring.version>3.0.3</mybatis-spring.version>
 
         <maven-flatten-plugin.version>1.6.0</maven-flatten-plugin.version>
     </properties>
@@ -67,67 +70,67 @@
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-jpa</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-redis</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-aop</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-ip2region</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-mybatis-plus</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-config</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-log-model</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-log-common</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-log-client</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-log</artifactId>
-                <version>${erwin-component.version}</version>
+                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
