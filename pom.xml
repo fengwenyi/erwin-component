@@ -21,7 +21,7 @@
 
     <modules>
         <module>erwin-component-common-parent</module>
-<!--        <module>erwin-component-sample-parent</module>-->
+        <module>erwin-component-sample-parent</module>
 <!--        <module>erwin-component-email</module>-->
 <!--        <module>erwin-component-task</module>-->
         <module>erwin-component-config</module>

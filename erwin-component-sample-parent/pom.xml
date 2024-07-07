@@ -10,10 +10,10 @@
     </parent>
 
     <artifactId>erwin-component-sample-parent</artifactId>
-    <version>0.0.X-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>sample-redis</module>
+<!--        <module>sample-redis</module>-->
+        <module>sample-config</module>
     </modules>
 
     <properties>
@@ -22,17 +22,6 @@
         <maven.test.skip>true</maven.test.skip>
         <mysql.version>8.2.0</mysql.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-        <erwin-component-sample.version>0.0.X-SNAPSHOT</erwin-component-sample.version>
     </properties>
-
-    <dependencies>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-    </dependencies>
-<!--    <dependencyManagement></dependencyManagement>-->
 
 </project>
