@@ -7,34 +7,41 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.3.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.fengwenyi</groupId>
     <artifactId>erwin-component</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>erwin-component</name>
-    <description>components</description>
+    <description>业务组件</description>
 
     <modules>
         <module>erwin-component-common-parent</module>
-        <module>erwin-component-sample-parent</module>
-        <module>erwin-component-email</module>
-        <module>erwin-component-task</module>
+<!--        <module>erwin-component-sample-parent</module>-->
+<!--        <module>erwin-component-email</module>-->
+<!--        <module>erwin-component-task</module>-->
         <module>erwin-component-config</module>
-        <module>erwin-component-log-parent</module>
+<!--        <module>erwin-component-log-parent</module>-->
     </modules>
 
     <properties>
         <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+<!--        <maven.compiler.source>17</maven.compiler.source>-->
+<!--        <maven.compiler.target>17</maven.compiler.target>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <erwin-component.version>0.0.1-SNAPSHOT</erwin-component.version>
-        <JavaLib.version>2.2.7</JavaLib.version>
+        <encoding>UTF-8</encoding>
+        <maven.test.skip>true</maven.test.skip>
+        <revision>0.0.1-SNAPSHOT</revision>
+        <maven-flatten-plugin.version>1.6.0</maven-flatten-plugin.version>
+        <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>3.2.1</maven-gpg-plugin.version>
+        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+        <JavaLib.version>3.0.0-SNAPSHOT</JavaLib.version>
+        <apache-commons-lang3.version>3.14.0</apache-commons-lang3.version>
         <ip2region.version>2.7.0</ip2region.version>
         <commons-lang3.version>3.14.0</commons-lang3.version>
         <commons-rng.version>1.5</commons-rng.version>
@@ -42,30 +49,12 @@
     </properties>
 
     <dependencies>
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>-->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>-->
-
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>-->
-        <!--<dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>-->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>-->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>flatten-maven-plugin</artifactId>
+            <version>${maven-flatten-plugin.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -77,12 +66,36 @@
             </dependency>
 
             <dependency>
-                <groupId>com.fengwenyi</groupId>
-                <artifactId>erwin-component-common</artifactId>
-                <version>${erwin-component.version}</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons-lang3.version}</version>
             </dependency>
 
             <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-common-mybatis-plus</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-config</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-rng-simple</artifactId>
+                <version>${commons-rng.version}</version>
+            </dependency>
+
+            <!--<dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-jpa</artifactId>
                 <version>${erwin-component.version}</version>
@@ -112,11 +125,7 @@
                 <version>${erwin-component.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.fengwenyi</groupId>
-                <artifactId>erwin-component-config</artifactId>
-                <version>${erwin-component.version}</version>
-            </dependency>
+
 
             <dependency>
                 <groupId>com.fengwenyi</groupId>
@@ -140,25 +149,182 @@
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-log</artifactId>
                 <version>${erwin-component.version}</version>
-            </dependency>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+            <id>maven-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>aliyun-public</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+        <repository>
+            <id>aliyun-central</id>
+            <url>https://maven.aliyun.com/repository/central</url>
+        </repository>
+        <repository>
+            <id>aliyun-spring</id>
+            <url>https://maven.aliyun.com/repository/spring</url>
+        </repository>
+        <repository>
+            <id>aliyun-google</id>
+            <url>https://maven.aliyun.com/repository/google</url>
+        </repository>
+        <repository>
+            <id>spring-release</id>
+            <url>https://repo.spring.io/release</url>
+        </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://mit-license.org/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>Github Issue</system>
+        <url>https://github.com/fengwenyi/erwin-component/issues</url>
+    </issueManagement>
+
+    <scm>
+        <url>https://github.com/fengwenyi/erwin-component</url>
+        <connection>git@github.com:fengwenyi/erwin-component.git</connection>
+        <developerConnection>https://github.com/fengwenyi/erwin-component</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Erwin Feng</name>
+            <email>xfsy_2015@163.com</email>
+            <url>https://fengwenyi.com</url>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
+            <!-- 添加flatten-maven-plugin插件 -->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${maven-flatten-plugin.version}</version>
+                <inherited>true</inherited>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                        <configuration>
+                            <!-- 避免IDE将 .flattened-pom.xml 自动识别为功能模块 -->
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                            <pomElements>
+                                <parent>expand</parent>
+                                <distributionManagement>remove</distributionManagement>
+                                <repositories>remove</repositories>
+                            </pomElements>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+            <!-- sonatype提供了自动release的插件，这意味着运行mvn clean deploy后不用手动去close-> release了，此插件会自动release我们的项目到Maven中央仓库。 -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <serverId>oss</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven-source-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

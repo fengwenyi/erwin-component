@@ -15,10 +15,10 @@ public interface IConfigService {
 
     ConfigEntity queryEnable(String organCode, String configCode);
 
-    <T> T queryObject(String organCode, String configCode, Class<T> clazz);
+    <T> Map<String, T> queryMap(String organCode, String configCode, Class<T> valueType);
 
-    <T> List<T> queryList(String organCode, String configCode, Class<T> clazz);
+    <T> List<T> queryList(String organCode, String configCode, Class<T> valueType);
 
-    <T> Map<String, T> queryMap(String organCode, String configCode);
+    <T> T queryObject(String organCode, String configCode, Class<T> valueType);
 
 }

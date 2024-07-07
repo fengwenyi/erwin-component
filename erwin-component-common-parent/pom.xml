@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.fengwenyi</groupId>
         <artifactId>erwin-component</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>erwin-component-common-parent</artifactId>
@@ -14,10 +14,10 @@
 
     <modules>
         <module>erwin-component-common</module>
-        <module>erwin-component-common-jpa</module>
-        <module>erwin-component-common-redis</module>
-        <module>erwin-component-common-aop</module>
-        <module>erwin-component-common-ip2region</module>
+<!--        <module>erwin-component-common-jpa</module>-->
+<!--        <module>erwin-component-common-redis</module>-->
+<!--        <module>erwin-component-common-aop</module>-->
+<!--        <module>erwin-component-common-ip2region</module>-->
         <module>erwin-component-common-mybatis-plus</module>
     </modules>
 

@@ -1,12 +1,12 @@
 package com.fengwenyi.erwin.component.config.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.fengwenyi.erwin.component.config.entity.ConfigEntity;
-import com.fengwenyi.erwin.component.config.repository.IConfigRepository;
+import com.fengwenyi.erwin.component.config.mp.IMpConfigService;
 import com.fengwenyi.erwin.component.config.service.IConfigService;
 import com.fengwenyi.erwin.component.config.util.ConfigUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class ConfigServiceImpl implements IConfigService {
 
-    private final IConfigRepository configRepository;
+    private final IMpConfigService mpConfigService;
 
     @Override
     public String queryJson(String organCode, String configCode) {
@@ -34,36 +34,39 @@ public class ConfigServiceImpl implements IConfigService {
 
     @Override
     public ConfigEntity queryEnable(String organCode, String configCode) {
-        Assert.notNull(organCode, "organCode must be not null");
-        Assert.notNull(configCode, "configCode must be not null");
-        return configRepository.findByOrganCodeAndConfigCodeAndStatus(organCode, configCode, true);
+        return mpConfigService.getOne(
+                new LambdaQueryWrapper<ConfigEntity>()
+                        .eq(ConfigEntity::getOrganCode, organCode)
+                        .eq(ConfigEntity::getConfigCode, configCode)
+                        .eq(ConfigEntity::getStatus, true)
+        );
     }
 
     @Override
-    public <T> T queryObject(String organCode, String configCode, Class<T> clazz) {
+    public <T> Map<String, T> queryMap(String organCode, String configCode, Class<T> valueType) {
         String json = queryJson(organCode, configCode);
-        if (!StringUtils.hasText(json)) {
-            return null;
+        if (StringUtils.hasText(json)) {
+            return ConfigUtils.getMap(json, valueType);
         }
-        return ConfigUtils.getObject(json, clazz);
+        return null;
     }
 
     @Override
-    public <T> List<T> queryList(String organCode, String configCode, Class<T> clazz) {
+    public <T> List<T> queryList(String organCode, String configCode, Class<T> valueType) {
         String json = queryJson(organCode, configCode);
-        if (!StringUtils.hasText(json)) {
-            return null;
+        if (StringUtils.hasText(json)) {
+            return ConfigUtils.getList(json, valueType);
         }
-        return ConfigUtils.getList(json, clazz);
+        return null;
     }
 
     @Override
-    public <T> Map<String, T> queryMap(String organCode, String configCode) {
+    public <T> T queryObject(String organCode, String configCode, Class<T> valueType) {
         String json = queryJson(organCode, configCode);
-        if (!StringUtils.hasText(json)) {
-            return null;
+        if (StringUtils.hasText(json)) {
+            return ConfigUtils.getObject(json, valueType);
         }
-        return ConfigUtils.getMap(json);
+        return null;
     }
 
 }

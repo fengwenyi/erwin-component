@@ -1,25 +1,25 @@
 package com.fengwenyi.erwin.component.config.entity;
 
-import info.hxgy.component.common.jpa.base.BaseBizEntity;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fengwenyi.erwin.component.common.mybatis_plus.base.BaseBizEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.io.Serial;
 
 /**
  * @author <a href="https://fengwenyi.com">Erwin Feng</a>
- * @since 2023-09-08
+ * @since 2023-08-19
  */
 @Getter
 @Setter
 @ToString
-@Entity
-@Table(name = "hc_config")
+@TableName("ec_config")
 public class ConfigEntity extends BaseBizEntity {
 
-    private static final long serialVersionUID = -5383748714643376820L;
+    @Serial
+    private static final long serialVersionUID = 936792872471992220L;
 
     private String organCode;
 
@@ -28,7 +28,4 @@ public class ConfigEntity extends BaseBizEntity {
     private String configName;
 
     private String configJson;
-
-    private String moreContent;
-
 }

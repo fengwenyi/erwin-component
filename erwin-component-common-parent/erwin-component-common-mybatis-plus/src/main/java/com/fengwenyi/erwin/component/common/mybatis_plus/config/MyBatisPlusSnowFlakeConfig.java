@@ -2,7 +2,7 @@ package com.fengwenyi.erwin.component.common.mybatis_plus.config;
 
 import com.baomidou.mybatisplus.core.incrementer.DefaultIdentifierGenerator;
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
-import info.hxgy.component.common.util.SnowFlakeUtils;
+import com.fengwenyi.erwin.component.common.util.SnowFlakeUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @Slf4j
-public class SnowFlakeConfig {
+public class MyBatisPlusSnowFlakeConfig {
 
     @Bean
     public IdentifierGenerator identifierGenerator()  {
