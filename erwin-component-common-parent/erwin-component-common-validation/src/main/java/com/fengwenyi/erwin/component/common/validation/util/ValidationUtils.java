@@ -1,4 +1,4 @@
-package com.fengwenyi.erwin.component.common.util;
+package com.fengwenyi.erwin.component.common.validation.util;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;

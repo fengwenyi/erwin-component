@@ -29,23 +29,22 @@
     </modules>
 
     <properties>
-        <java.version>17</java.version>
-<!--        <maven.compiler.source>17</maven.compiler.source>-->
-<!--        <maven.compiler.target>17</maven.compiler.target>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <encoding>UTF-8</encoding>
-        <maven.test.skip>true</maven.test.skip>
         <revision>0.0.1-SNAPSHOT</revision>
+        <maven.test.skip>true</maven.test.skip>
         <maven-flatten-plugin.version>1.6.0</maven-flatten-plugin.version>
         <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>3.2.1</maven-gpg-plugin.version>
         <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
         <JavaLib.version>3.0.0-SNAPSHOT</JavaLib.version>
         <apache-commons-lang3.version>3.14.0</apache-commons-lang3.version>
+        <apache-commons-rng.version>1.5</apache-commons-rng.version>
+        <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <ip2region.version>2.7.0</ip2region.version>
-        <commons-lang3.version>3.14.0</commons-lang3.version>
-        <commons-rng.version>1.5</commons-rng.version>
-        <mybatis-plus.version>3.5.5</mybatis-plus.version>
     </properties>
 
     <dependencies>
@@ -59,18 +58,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.fengwenyi</groupId>
-                <artifactId>JavaLib</artifactId>
-                <version>${JavaLib.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${apache-commons-lang3.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common</artifactId>
@@ -87,12 +74,6 @@
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-config</artifactId>
                 <version>${revision}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-rng-simple</artifactId>
-                <version>${commons-rng.version}</version>
             </dependency>
 
             <!--<dependency>

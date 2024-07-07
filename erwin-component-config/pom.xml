@@ -16,11 +16,6 @@
             <groupId>com.fengwenyi</groupId>
             <artifactId>erwin-component-common-mybatis-plus</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.fengwenyi</groupId>
-            <artifactId>erwin-component-common</artifactId>
-        </dependency>
     </dependencies>
 
 </project>
