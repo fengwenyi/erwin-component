@@ -20,6 +20,7 @@
 <!--        <module>erwin-component-common-ip2region</module>-->
         <module>erwin-component-common-mybatis-plus</module>
         <module>erwin-component-common-validation</module>
+        <module>erwin-component-common-request</module>
     </modules>
 
 </project>

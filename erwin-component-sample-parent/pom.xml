@@ -14,6 +14,7 @@
     <modules>
 <!--        <module>sample-redis</module>-->
         <module>sample-config</module>
+        <module>sample-example</module>
     </modules>
 
     <properties>

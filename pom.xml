@@ -26,6 +26,7 @@
 <!--        <module>erwin-component-task</module>-->
         <module>erwin-component-config</module>
 <!--        <module>erwin-component-log-parent</module>-->
+        <module>erwin-component-os-client</module>
     </modules>
 
     <properties>
@@ -45,6 +46,7 @@
         <apache-commons-rng.version>1.5</apache-commons-rng.version>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <ip2region.version>2.7.0</ip2region.version>
+        <api-result.version>2.7.4</api-result.version>
     </properties>
 
     <dependencies>
