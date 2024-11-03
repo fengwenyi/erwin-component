@@ -3,7 +3,8 @@ package com.fengwenyi.erwin.component.common.redis.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
-import com.fengwenyi.erwin.component.common.util.JacksonUtils;
+import com.fengwenyi.javalib.convert.JsonUtils;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
@@ -18,10 +19,11 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @author <a href="https://fengwenyi.com">Erwin Feng</a>
  * @since 2023-12-26
  */
-//@Configuration
+@Configuration
 public class ComponentRedisConfig {
 
     @Bean
+    @ConditionalOnMissingBean(RedisTemplate.class)
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
@@ -39,28 +41,25 @@ public class ComponentRedisConfig {
         return template;
     }
 
-@Bean
-public RedisCacheConfiguration redisCacheConfiguration() {
-    return RedisCacheConfiguration
-            .defaultCacheConfig()
-            .serializeValuesWith(
-                    RedisSerializationContext
-                            .SerializationPair
-//                            .fromSerializer(RedisSerializer.json())
-//                            .fromSerializer(
-//                                    new GenericJackson2JsonRedisSerializer()
-//                            )
-                            .fromSerializer(redisSerializer())
-            );
-}
+    @Bean
+    @ConditionalOnMissingBean(RedisCacheConfiguration.class)
+    public RedisCacheConfiguration redisCacheConfiguration() {
+        return RedisCacheConfiguration
+                .defaultCacheConfig()
+                .serializeValuesWith(
+                        RedisSerializationContext
+                                .SerializationPair
+                                .fromSerializer(redisSerializer())
+                );
+    }
 
-private RedisSerializer<Object> redisSerializer() {
-    JsonMapper jsonMapper = new JsonMapper();
-    JacksonUtils.configure(jsonMapper);
-    jsonMapper.activateDefaultTyping(
-            LaissezFaireSubTypeValidator.instance,
-            ObjectMapper.DefaultTyping.NON_FINAL
-    );
-    return new GenericJackson2JsonRedisSerializer(jsonMapper);
-}
+    protected RedisSerializer<Object> redisSerializer() {
+        JsonMapper jsonMapper = new JsonMapper();
+        JsonUtils.configure(jsonMapper);
+        jsonMapper.activateDefaultTyping(
+                LaissezFaireSubTypeValidator.instance,
+                ObjectMapper.DefaultTyping.NON_FINAL
+        );
+        return new GenericJackson2JsonRedisSerializer(jsonMapper);
+    }
 }
