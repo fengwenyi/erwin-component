@@ -27,6 +27,7 @@
         <module>erwin-component-config</module>
 <!--        <module>erwin-component-log-parent</module>-->
         <module>erwin-component-os-client</module>
+        <module>erwin-component-user</module>
     </modules>
 
     <properties>
