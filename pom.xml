@@ -28,6 +28,7 @@
 <!--        <module>erwin-component-log-parent</module>-->
         <module>erwin-component-os-client</module>
         <module>erwin-component-user</module>
+        <module>erwin-component-shardingsphere</module>
     </modules>
 
     <properties>
@@ -48,6 +49,7 @@
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <ip2region.version>2.7.0</ip2region.version>
         <api-result.version>3.0.0</api-result.version>
+        <shardingsphere-jdbc.version>5.5.1</shardingsphere-jdbc.version>
     </properties>
 
     <dependencies>
