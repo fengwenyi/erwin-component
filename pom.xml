@@ -81,6 +81,12 @@
                 <version>${revision}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.fengwenyi</groupId>
+                <artifactId>erwin-component-shardingsphere</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!--<dependency>
                 <groupId>com.fengwenyi</groupId>
                 <artifactId>erwin-component-common-jpa</artifactId>
